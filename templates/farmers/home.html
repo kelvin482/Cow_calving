@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% block title %}CalveCare Pro | Advanced Calving Monitoring{% endblock %}
+
+{% block content %}
+<section class="ccp-hero reveal" id="dashboard">
+    <div class="ccp-hero-overlay"></div>
+    <div class="ccp-hero-content">
+        <div class="ccp-hero-badge">
+            <span class="badge-dot"></span>
+            4 Cows Currently Monitored
+        </div>
+        <h1>Real-Time Calving<br>Monitoring and Care</h1>
+        <p>Empowering farmers with practical monitoring workflows and veterinary support for safer calving outcomes.</p>
+        <div class="ccp-hero-stats">
+            <article>
+                <h3>98.4%</h3>
+                <p>Success Rate</p>
+            </article>
+            <article>
+                <h3>24/7</h3>
+                <p>Monitoring</p>
+            </article>
+            <article>
+                <h3>156</h3>
+                <p>Healthy Calves</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="ccp-section reveal" id="monitoring">
+    <div class="ccp-section-head">
+        <h2>Quick Actions</h2>
+        <p class="ccp-head-note">Commonly used tools and resources</p>
+    </div>
+
+    <div class="ccp-action-grid">
+        <article class="ccp-action-card" data-action="Add New Cow">
+            <div class="ccp-action-icon ccp-add">+</div>
+            <h3>Add New Cow</h3>
+            <p>Register a new cow for monitoring</p>
+        </article>
+        <article class="ccp-action-card" data-action="Emergency Protocol">
+            <div class="ccp-action-icon ccp-emergency">&#9888;</div>
+            <h3>Emergency Protocol</h3>
+            <p>Access emergency calving procedures</p>
+        </article>
+        <article class="ccp-action-card" data-action="Call Veterinarian">
+            <div class="ccp-action-icon ccp-vet">&#9990;</div>
+            <h3>Call Veterinarian</h3>
+            <p>Connect with on-call vet support</p>
+        </article>
+        <article class="ccp-action-card" data-action="Medical Records">
+            <div class="ccp-action-icon ccp-records">&#128196;</div>
+            <h3>Medical Records</h3>
+            <p>View and update health records</p>
+        </article>
+    </div>
+</section>
+
+<section class="ccp-section reveal">
+    <div class="ccp-section-head">
+        <div>
+            <h2>Active Monitoring</h2>
+            <p>Live calving status and vital signs</p>
+        </div>
+        <div class="ccp-filter-row">
+            <button class="ccp-filter-btn active" data-filter="all">All Stages</button>
+            <button class="ccp-filter-btn" data-filter="critical">Critical</button>
+            <button class="ccp-filter-btn" data-filter="due-soon">Due Soon</button>
+        </div>
+    </div>
+
+    <div class="ccp-monitor-grid" id="monitorCards">
+        <article class="ccp-cow-card critical" data-state="critical due-soon">
+            <header>
+                <div class="ccp-cow-top ccp-cow-top-compact">
+                    <div>
+                        <p class="ccp-id">#HC-2847</p>
+                        <h3>Bessie</h3>
+                        <p class="ccp-meta">Holstein • 4 years • 2nd Calving</p>
+                    </div>
+                </div>
+                <div class="ccp-status-wrap">
+                    <span class="ccp-status status-critical"><span class="ccp-status-dot"></span>Imminent</span>
+                    <button class="ccp-menu-btn" type="button" aria-label="Card options">•••</button>
+                </div>
+            </header>
+            <div class="ccp-stage">
+                <div class="ccp-stage-head">
+                    <span>Calving Stage</span>
+                    <span class="ccp-stage-index">Stage 3 of 3</span>
+                </div>
+                <div class="ccp-progress"><span style="width:95%"></span></div>
+                <p><strong>Final Stage:</strong> Delivery expected within 2-4 hours</p>
+            </div>
+            <div class="ccp-vitals">
+                <div><strong>82 bpm</strong><span>Heart Rate</span></div>
+                <div><strong>38.9 C</strong><span>Temperature</span></div>
+                <div><strong>High</strong><span>Activity</span></div>
+            </div>
+            <div class="ccp-card-actions">
+                <a class="btn btn-primary" href="/farmers/stages/">Monitor Live</a>
+                <a class="btn btn-secondary" href="/farmers/checklist/">View Protocol</a>
+            </div>
+            <p class="ccp-updated" data-minutes="2">Updated 2 minutes ago</p>
+        </article>
+
+        <article class="ccp-cow-card warning" data-state="due-soon">
+            <header>
+                <div class="ccp-cow-top ccp-cow-top-compact">
+                    <div>
+                        <p class="ccp-id">#JR-1923</p>
+                        <h3>Daisy Mae</h3>
+                        <p class="ccp-meta">Jersey • 3 years • 1st Calving</p>
+                    </div>
+                </div>
+                <div class="ccp-status-wrap">
+                    <span class="ccp-status status-warning"><span class="ccp-status-dot"></span>Early Labor</span>
+                    <button class="ccp-menu-btn" type="button" aria-label="Card options">•••</button>
+                </div>
+            </header>
+            <div class="ccp-stage">
+                <div class="ccp-stage-head">
+                    <span>Calving Stage</span>
+                    <span class="ccp-stage-index">Stage 2 of 3</span>
+                </div>
+                <div class="ccp-progress"><span style="width:60%"></span></div>
+                <p><strong>Active Labor:</strong> Estimated 6-12 hours to delivery</p>
+            </div>
+            <div class="ccp-vitals">
+                <div><strong>76 bpm</strong><span>Heart Rate</span></div>
+                <div><strong>38.5 C</strong><span>Temperature</span></div>
+                <div><strong>Moderate</strong><span>Activity</span></div>
+            </div>
+            <div class="ccp-card-actions">
+                <a class="btn btn-primary" href="/farmers/stages/">Monitor Live</a>
+                <a class="btn btn-secondary" href="/farmers/checklist/">View Protocol</a>
+            </div>
+            <p class="ccp-updated" data-minutes="5">Updated 5 minutes ago</p>
+        </article>
+
+        <article class="ccp-cow-card stable" data-state="all">
+            <header>
+                <div class="ccp-cow-top ccp-cow-top-compact">
+                    <div>
+                        <p class="ccp-id">#GU-3401</p>
+                        <h3>Rosie</h3>
+                        <p class="ccp-meta">Guernsey • 5 years • 3rd Calving</p>
+                    </div>
+                </div>
+                <div class="ccp-status-wrap">
+                    <span class="ccp-status status-stable"><span class="ccp-status-dot"></span>Pre-Labor</span>
+                    <button class="ccp-menu-btn" type="button" aria-label="Card options">•••</button>
+                </div>
+            </header>
+            <div class="ccp-stage">
+                <div class="ccp-stage-head">
+                    <span>Calving Stage</span>
+                    <span class="ccp-stage-index">Stage 1 of 3</span>
+                </div>
+                <div class="ccp-progress"><span style="width:25%"></span></div>
+                <p><strong>Early Signs:</strong> Estimated 24-48 hours to active labor</p>
+            </div>
+            <div class="ccp-vitals">
+                <div><strong>68 bpm</strong><span>Heart Rate</span></div>
+                <div><strong>38.3 C</strong><span>Temperature</span></div>
+                <div><strong>Normal</strong><span>Activity</span></div>
+            </div>
+            <div class="ccp-card-actions">
+                <a class="btn btn-primary" href="/farmers/stages/">Monitor Live</a>
+                <a class="btn btn-secondary" href="/farmers/checklist/">View Protocol</a>
+            </div>
+            <p class="ccp-updated" data-minutes="8">Updated 8 minutes ago</p>
+        </article>
+
+        <article class="ccp-cow-card monitoring" data-state="all">
+            <header>
+                <div class="ccp-cow-top ccp-cow-top-compact">
+                    <div>
+                        <p class="ccp-id">#AN-5672</p>
+                        <h3>Buttercup</h3>
+                        <p class="ccp-meta">Angus • 4 years • 2nd Calving</p>
+                    </div>
+                </div>
+                <div class="ccp-status-wrap">
+                    <span class="ccp-status status-info"><span class="ccp-status-dot"></span>Observation</span>
+                    <button class="ccp-menu-btn" type="button" aria-label="Card options">•••</button>
+                </div>
+            </header>
+            <div class="ccp-stage">
+                <div class="ccp-stage-head">
+                    <span>Due Date</span>
+                    <span class="ccp-stage-index">5 days remaining</span>
+                </div>
+                <div class="ccp-progress"><span style="width:10%"></span></div>
+                <p><strong>Routine Monitoring:</strong> No labor signs detected</p>
+            </div>
+            <div class="ccp-vitals">
+                <div><strong>64 bpm</strong><span>Heart Rate</span></div>
+                <div><strong>38.1 C</strong><span>Temperature</span></div>
+                <div><strong>Normal</strong><span>Activity</span></div>
+            </div>
+            <div class="ccp-card-actions">
+                <a class="btn btn-primary" href="/farmers/stages/">Monitor Live</a>
+                <a class="btn btn-secondary" href="/farmers/checklist/">View Protocol</a>
+            </div>
+            <p class="ccp-updated" data-minutes="12">Updated 12 minutes ago</p>
+        </article>
+    </div>
+</section>
+
+<section class="ccp-section reveal" id="library">
+    <div class="ccp-section-head">
+        <div>
+            <h2>Best Practice Guides</h2>
+            <p>Field-ready protocols for every calving stage</p>
+        </div>
+        <a class="ccp-see-all" href="/farmers/checklist/">See all guides</a>
+    </div>
+
+    <div class="ccp-knowledge-grid">
+        <article class="ccp-knowledge-card">
+            <div class="ccp-knowledge-image stage1"></div>
+            <div class="ccp-knowledge-copy">
+                <span>Stage 1</span>
+                <h3>Pre-Labor Recognition</h3>
+                <p>Identify early signs: restlessness, udder development, and tail ligament relaxation.</p>
+                <a href="/farmers/stages/">Read Guide</a>
+            </div>
+        </article>
+        <article class="ccp-knowledge-card">
+            <div class="ccp-knowledge-image stage2"></div>
+            <div class="ccp-knowledge-copy">
+                <span>Stage 2</span>
+                <h3>Active Labor Protocol</h3>
+                <p>When to intervene, proper positioning, and safe delivery assistance practices.</p>
+                <a href="/farmers/stages/">Read Guide</a>
+            </div>
+        </article>
+        <article class="ccp-knowledge-card">
+            <div class="ccp-knowledge-image stage3"></div>
+            <div class="ccp-knowledge-copy">
+                <span>Stage 3</span>
+                <h3>Post-Delivery Care</h3>
+                <p>Calf stimulation, first colostrum feeding, and maternal recovery checks.</p>
+                <a href="/farmers/checklist/">Read Guide</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="ccp-ai reveal" id="alerts">
+    <div class="ccp-ai-content">
+        <div class="ccp-ai-icon">+</div>
+        <div>
+            <p class="ccp-ai-tag">AI-Ready Module</p>
+            <h2>AI-Powered Assistance</h2>
+            <p>Get instant answers to calving questions, personalized care recommendations, and 24/7 expert guidance.</p>
+        </div>
+    </div>
+    <a class="btn btn-primary" href="/accounts/login/">Ask AI Assistant</a>
+</section>
+{% endblock %}

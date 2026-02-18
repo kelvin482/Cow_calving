@@ -1,0 +1,79 @@
+{% extends "accounts/base_auth.html" %}
+
+{% block title %}Create Account | CowCalving{% endblock %}
+
+{% block auth_panel_title %}Welcome to CowCalving{% endblock %}
+{% block auth_panel_text %}Create your account to track calving activity with your team and keep every key event organized from one place.{% endblock %}
+{% block auth_panel_points %}{% endblock %}
+
+{% block auth_form_title %}Create account{% endblock %}
+{% block auth_form_subtitle %}Set up your CowCalving profile.{% endblock %}
+{% block auth_form_class %}auth-card--signup{% endblock %}
+{% block auth_form_progress %}
+    <div class="auth-progress" aria-hidden="true">
+        <div class="auth-progress-track"><span class="auth-progress-fill"></span></div>
+        <p class="auth-progress-text">Step 1 of 1: Account setup</p>
+    </div>
+{% endblock %}
+
+{% block auth_form_fields %}
+    <div class="auth-grid">
+        <div class="auth-field">
+            <label for="id_first_name">First Name</label>
+            {{ form.first_name }}
+            {% if form.first_name.errors %}<small class="auth-error">{{ form.first_name.errors|striptags }}</small>{% endif %}
+        </div>
+        <div class="auth-field">
+            <label for="id_last_name">Last Name</label>
+            {{ form.last_name }}
+            {% if form.last_name.errors %}<small class="auth-error">{{ form.last_name.errors|striptags }}</small>{% endif %}
+        </div>
+    </div>
+
+    <div class="auth-field">
+        <label for="id_username">Username</label>
+        {{ form.username }}
+        {% if form.username.errors %}<small class="auth-error">{{ form.username.errors|striptags }}</small>{% endif %}
+    </div>
+
+    <div class="auth-field">
+        <label for="id_email">Email</label>
+        {{ form.email }}
+        {% if form.email.errors %}<small class="auth-error">{{ form.email.errors|striptags }}</small>{% endif %}
+    </div>
+
+    <div class="auth-grid">
+        <div class="auth-field">
+            <label for="id_role">Role</label>
+            {{ form.role }}
+            {% if form.role.errors %}<small class="auth-error">{{ form.role.errors|striptags }}</small>{% endif %}
+        </div>
+        <div class="auth-field">
+            <label for="id_farm_name">Farm Name</label>
+            {{ form.farm_name }}
+            {% if form.farm_name.errors %}<small class="auth-error">{{ form.farm_name.errors|striptags }}</small>{% endif %}
+        </div>
+    </div>
+
+    <div class="auth-grid">
+        <div class="auth-field">
+            <label for="id_password1">Password</label>
+            {{ form.password1 }}
+            <div class="password-strength" aria-hidden="true">
+                <span class="password-strength-bar"></span>
+            </div>
+            {% if form.password1.errors %}<small class="auth-error">{{ form.password1.errors|striptags }}</small>{% endif %}
+        </div>
+        <div class="auth-field">
+            <label for="id_password2">Confirm Password</label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}<small class="auth-error">{{ form.password2.errors|striptags }}</small>{% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block auth_submit_text %}Create Account{% endblock %}
+{% block auth_switch_text %}Already have an account? <a href="/accounts/login/">Sign in</a>{% endblock %}
+{% block auth_legal_text %}By creating an account, you agree to proper handling of animal health data.{% endblock %}
+
+

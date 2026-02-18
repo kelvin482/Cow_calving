@@ -1,0 +1,51 @@
+{% extends "accounts/base_auth.html" %}
+
+{% block title %}Login | CowCalving{% endblock %}
+
+{% block auth_panel_title %}Sign in to manage calving records and herd monitoring.{% endblock %}
+{% block auth_panel_text %}Built for farm teams and veterinarians who need reliable records during critical calving windows.{% endblock %}
+{% block auth_panel_points %}{% endblock %}
+
+{% block auth_form_title %}Sign in{% endblock %}
+{% block auth_form_subtitle %}Use your account credentials to continue.{% endblock %}
+
+{% block auth_form_fields %}
+    <div class="auth-field">
+        <label for="id_username">Username</label>
+        {{ form.username }}
+        {% if form.username.errors %}<small class="auth-error">{{ form.username.errors|striptags }}</small>{% endif %}
+    </div>
+
+    <div class="auth-field">
+        <label for="id_password">Password</label>
+        {{ form.password }}
+        {% if form.password.errors %}<small class="auth-error">{{ form.password.errors|striptags }}</small>{% endif %}
+    </div>
+{% endblock %}
+
+{% block auth_form_meta %}
+    <div class="auth-row">
+        <label class="auth-check">
+            <input type="checkbox" name="remember_me">
+            <span>Remember me</span>
+        </label>
+    </div>
+    <div class="auth-social-divider" aria-hidden="true">
+        <span>or continue with</span>
+    </div>
+    <div class="auth-social-actions">
+        <a class="auth-social-btn auth-social-btn--google" href="/accounts/social/google/login/">
+            <span class="auth-social-mark" aria-hidden="true">G</span>
+            <span>Continue with Google</span>
+        </a>
+        <a class="auth-social-btn auth-social-btn--facebook" href="/accounts/social/facebook/login/">
+            <span class="auth-social-mark" aria-hidden="true">f</span>
+            <span>Continue with Facebook</span>
+        </a>
+    </div>
+{% endblock %}
+{% block auth_submit_text %}Sign In{% endblock %}
+{% block auth_switch_text %}No account yet? <a href="/accounts/signup/">Create account</a>{% endblock %}
+{% block auth_legal_text %}By continuing, you agree to responsible use of farm health records.{% endblock %}
+
+

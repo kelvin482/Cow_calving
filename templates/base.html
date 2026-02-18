@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cow Calving Care{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/site.css' %}?v=20260217-auth">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <div class="grain"></div>
+    <header class="site-header">
+        <a class="brand" href="/">
+            <span class="brand-mark">C</span>
+            <span>CowCalving</span>
+        </a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/farmers/stages/">Calving Stages</a>
+            <a href="/farmers/checklist/">Best Practices</a>
+            {% if request.user.is_authenticated %}
+                <a href="/accounts/logout/">Logout</a>
+            {% else %}
+                <a href="/accounts/login/">Account</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% if messages %}
+            <section class="message-stack">
+                {% for message in messages %}
+                    <div class="flash flash-{{ message.tags|default:'info' }}">{{ message }}</div>
+                {% endfor %}
+            </section>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block footer %}
+        <footer class="site-footer">
+            <div class="site-footer-grid">
+                <section>
+                    <h4>CalveCare Pro</h4>
+                    <p>Advanced calving monitoring for modern dairy farming.</p>
+                </section>
+                <section>
+                    <h4>Resources</h4>
+                    <a href="/farmers/checklist/">Knowledge Library</a>
+                    <a href="/farmers/stages/">Video Tutorials</a>
+                    <a href="/farmers/checklist/">Best Practices</a>
+                </section>
+                <section>
+                    <h4>Support</h4>
+                    <a href="/farmers/checklist/">Emergency Hotline</a>
+                    <a href="/farmers/stages/">Vet Network</a>
+                    <a href="/accounts/login/">Contact Us</a>
+                </section>
+                <section>
+                    <h4>Legal</h4>
+                    <a href="/accounts/signup/">Privacy Policy</a>
+                    <a href="/accounts/signup/">Terms of Service</a>
+                </section>
+            </div>
+            <p class="site-footer-copy">&copy; 2026 CalveCare Pro. All rights reserved.</p>
+        </footer>
+    {% endblock %}
+
+    <script src="{% static 'js/site.js' %}?v=20260217-auth"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Calving Stages | CowCalving{% endblock %}
+
+{% block content %}
+<section class="page-head reveal">
+    <p class="eyebrow">Stage Guide</p>
+    <h1>Know what stage she is in, and what to do next.</h1>
+</section>
+
+<section class="timeline reveal">
+    <article class="stage-card">
+        <span class="stage-index">01</span>
+        <h3>Early Labor (2-6 hours)</h3>
+        <p>Restlessness, tail raising, reduced appetite, and frequent lying down/standing up.</p>
+        <ul>
+            <li>Move cow to a clean, quiet calving pen.</li>
+            <li>Prepare gloves, disinfectant, and emergency vet contacts.</li>
+        </ul>
+    </article>
+    <article class="stage-card">
+        <span class="stage-index">02</span>
+        <h3>Active Labor (30 min-4 hours)</h3>
+        <p>Water bag appears, abdominal contractions become visible, calf presentation begins.</p>
+        <ul>
+            <li>Observe every 20-30 minutes.</li>
+            <li>Call vet if no progress after 2 hours or abnormal calf position appears.</li>
+        </ul>
+    </article>
+    <article class="stage-card">
+        <span class="stage-index">03</span>
+        <h3>Placenta Expulsion (up to 12 hours)</h3>
+        <p>After calf delivery, membranes are expelled and cow begins postpartum recovery.</p>
+        <ul>
+            <li>Provide warm clean water and monitor temperature.</li>
+            <li>Contact vet if placenta remains beyond 12 hours.</li>
+        </ul>
+    </article>
+</section>
+
+<section class="progress reveal">
+    <h2>Live Progress Example</h2>
+    <div class="progress-bar"><span id="stageProgress"></span></div>
+</section>
+{% endblock %}
+

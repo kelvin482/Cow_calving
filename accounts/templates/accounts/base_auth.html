@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'accounts/css/auth.css' %}?v=20260217-6">
+{% endblock %}
+
+{% block content %}
+<section class="auth-page">
+    <div class="auth-layout">
+        <aside class="auth-panel">
+            <div class="auth-panel-copy">
+                <p class="auth-kicker">CowCalving</p>
+                <h1>{% block auth_panel_title %}{% endblock %}</h1>
+                <p>{% block auth_panel_text %}{% endblock %}</p>
+                {% block auth_panel_points %}{% endblock %}
+            </div>
+        </aside>
+
+        <form class="auth-card {% block auth_form_class %}{% endblock %}" method="post" novalidate>
+            {% csrf_token %}
+            {% block auth_form_progress %}{% endblock %}
+            <h2>{% block auth_form_title %}{% endblock %}</h2>
+            <p class="auth-subtitle">{% block auth_form_subtitle %}{% endblock %}</p>
+
+            {% if form.non_field_errors %}
+                <div class="auth-alert">{{ form.non_field_errors|striptags }}</div>
+            {% endif %}
+
+            {% block auth_form_fields %}{% endblock %}
+            {% block auth_form_meta %}{% endblock %}
+
+            <button class="btn btn-primary auth-submit" type="submit">{% block auth_submit_text %}{% endblock %}</button>
+            <p class="auth-switch">{% block auth_switch_text %}{% endblock %}</p>
+            <p class="auth-legal">{% block auth_legal_text %}{% endblock %}</p>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'accounts/js/auth.js' %}?v=20260217-1"></script>
+{% endblock %}
+
+
